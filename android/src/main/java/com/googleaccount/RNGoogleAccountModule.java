@@ -21,12 +21,12 @@ public class RNGoogleAccountModule extends ReactContextBaseJavaModule {
 	}
 
 	@ReactMethod
-	public void fromString(final String jsonData, final Promise promise){
+	public void fromString(final String jsonData, final String scoped, final Promise promise){
 		AsyncTask.execute(new Runnable() {
 			@Override
 			public void run() {
 				try {
-					credentials = GoogleCredentials.fromStream(new ByteArrayInputStream(jsonData.getBytes()));
+					credentials = GoogleCredentials.fromStream(new ByteArrayInputStream(jsonData.getBytes())).CreateScoped(scoped);
 					getAccessToken(promise);
 				} catch (Exception e) {
 					promise.reject(e);
