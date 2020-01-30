@@ -13,10 +13,11 @@ import com.google.auth.oauth2.GoogleCredentials;
 import com.google.auth.oauth2.AccessToken;
 
 public class RNGoogleAccountModule extends ReactContextBaseJavaModule {
-	private final GoogleCredentials credentials;
+	private GoogleCredentials credentials;
 
 	public RNGoogleAccountModule(ReactApplicationContext reactContext) {
 		super(reactContext);
+		credentials = null;
 	}
 
 	@ReactMethod
@@ -37,6 +38,7 @@ public class RNGoogleAccountModule extends ReactContextBaseJavaModule {
 	@ReactMethod
 	public void getAccessToken(Promise promise) {
 		try {
+			if (credentials == null)  { promise.reject('Credentials not initialized - use fromString'); return; }
 			credentials.refreshIfExpired();
 			AccessToken token = credentials.getAccessToken();
 			promise.resolve(token.getTokenValue());
