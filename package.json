@@ -1,0 +1,23 @@
+{
+  "name": "react-googleaccount",
+  "version": "1.2.1",
+  "description": "React Native Google Account Authentication",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mjschutz/react-googleaccount"
+  },
+  "main": "index.js",
+  "homepage": "https://github.com/mjschutz/react-googleaccount",
+  "keywords": [
+    "react-native",
+    "googleaccount",
+	"oauth",
+	"GoogleCredential",
+	"googleservice"
+  ],
+  "author": "mjschutz",
+  "license": "MIT",
+  "peerDependencies": {
+    "react-native": "^0.60.0"
+  }
+}
