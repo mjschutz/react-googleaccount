@@ -38,7 +38,7 @@ public class RNGoogleAccountModule extends ReactContextBaseJavaModule {
 	@ReactMethod
 	public void getAccessToken(Promise promise) {
 		try {
-			if (credentials == null)  { promise.reject('Credentials not initialized - use fromString'); return; }
+			if (credentials == null)  { promise.reject("Credentials not initialized - use fromString"); return; }
 			credentials.refreshIfExpired();
 			AccessToken token = credentials.getAccessToken();
 			promise.resolve(token.getTokenValue());
