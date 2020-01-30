@@ -26,7 +26,7 @@ public class RNGoogleAccountModule extends ReactContextBaseJavaModule {
 			@Override
 			public void run() {
 				try {
-					credentials = GoogleCredentials.fromStream(new ByteArrayInputStream(jsonData.getBytes())).setServiceAccountScopes(scoped);
+					credentials = GoogleCredentials.fromStream(new ByteArrayInputStream(jsonData.getBytes())).createScoped(scoped);
 					getAccessToken(promise);
 				} catch (Exception e) {
 					promise.reject(e);
