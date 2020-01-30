@@ -6,6 +6,7 @@ import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.ReadableArray;
 
 import java.io.ByteArrayInputStream;
 
@@ -21,7 +22,7 @@ public class RNGoogleAccountModule extends ReactContextBaseJavaModule {
 	}
 
 	@ReactMethod
-	public void fromString(final String jsonData, final String scoped, final Promise promise){
+	public void fromString(final String jsonData, final ReadableArray scoped, final Promise promise){
 		AsyncTask.execute(new Runnable() {
 			@Override
 			public void run() {
@@ -50,5 +51,14 @@ public class RNGoogleAccountModule extends ReactContextBaseJavaModule {
 	@Override
 	public String getName() {
 		return "RNGoogleAccount";
+	}
+	
+	private static String[] readableArrayToStringArray(ReadableArray readableArray) {
+		String[] arr = new String[readableArray.size()];
+		for (int i = 0; i < readableArray.size(); i++) {
+			arr[i] = readableArray.getString(i);
+		}
+
+		return arr;
 	}
 }
