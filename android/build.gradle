@@ -38,8 +38,5 @@ dependencies {
     implementation 'com.facebook.react:react-native:+'
 	implementation 'com.google.auth:google-auth-library-oauth2-http:0.20.0'
     implementation fileTree(dir: 'libs', include: '*.jar')
-	
-	implementation 'org.slf4j:slf4j-api:1.7.25'
-    implementation 'ch.qos.logback:logback-classic:1.2.3'
 }
   
